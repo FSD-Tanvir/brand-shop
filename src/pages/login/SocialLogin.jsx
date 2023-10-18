@@ -1,7 +1,11 @@
 const SocialLogin = () => {
   return (
     <div>
-      <h1 className="text-7xl">This is SocialLogin</h1>
+      <div className="divider font-medium">continue with</div>
+      <div className=" flex justify-around">
+        <button className="btn btn-error btn-outline  btn-sm font-medium">Google</button>
+        <button className="btn btn-error btn-outline btn-sm font-medium">Github</button>
+      </div>
     </div>
   );
 };

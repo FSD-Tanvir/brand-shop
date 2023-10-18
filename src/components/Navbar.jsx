@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-base-100 items-end sm:items-center">
-        <div className="navbar-start flex flex-col-reverse sm:flex-row  items-start sm:items-center gap-3">
+      <div className="navbar bg-base-100 ">
+        <div className="navbar sm:navbar-start items-center sm:gap-5">
           <div className="dropdown">
             <label
               tabIndex={0}
@@ -66,9 +66,15 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="flex  md:flex-row  items-center gap-3 sm:gap-1">
-          <img src="https://i.ibb.co/MSXSktB/gb.jpg" alt="" className="w-12 rounded-full"/>
-          <a className=" font-bold normal-case text-2xl sm:text-3xl text-error ">GagetBaari</a>
+          <div className="flex  md:flex-row  items-center gap-1 sm:gap-1 w-100% sm:w-full mx-auto">
+            <img
+              src="https://i.ibb.co/MSXSktB/gb.jpg"
+              alt=""
+              className="w-8 sm:w-12 rounded-full"
+            />
+            <a className=" font-bold normal-case text-2xl sm:text-3xl text-error ">
+              GagetBaari
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -112,7 +118,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="sm:navbar-end">
           <Link to="/login">
             <button className="btn btn-outline btn-error btn-sm lg:btn-md font-medium lg:text-xl ">
               Login
