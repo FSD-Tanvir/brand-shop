@@ -1,13 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import BrandsSection from "./BrandsSection";
-// import Banner from "./Banner";
+import Banner from "./Banner";
 
 const Home = () => {
   const brands = useLoaderData();
 
   return (
     <div>
-      {/* <Banner/> */}
+      <Banner/>
       <BrandsSection brands={brands}/>
     </div>
   );

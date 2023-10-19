@@ -2,7 +2,7 @@ const AddProduct = () => {
   return (
     <div className="py-10">
       <div className="p-10   border-error border-4 rounded-3xl space-y-5 ">
-        <h1 className="text-center text-5xl font-semibold text-error">
+        <h1 className="text-center text-5xl font-semibold ">
           Add Product
         </h1>
         <form>
