@@ -6,7 +6,9 @@ const Root = () => {
     <div>
       <div className="max-w-7xl mx-auto font-dmSans ">
         <Navbar />
-        <Outlet />
+        <div>
+          <Outlet/>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Apple",
+    "img": "https://i.ibb.co/CsnJHg9/apple-brand.jpg"
+  },
+  {
+    "name": "Samsung",
+    "img": "https://i.ibb.co/PMXFdJ9/Samsung-brand.png"
+  },
+  
+  {
+    "name": "Mi",
+    "img": "https://i.ibb.co/CMm6fXF/mi-brand.webp"
+  },
+  {
+    "name": "Google",
+    "img": "https://i.ibb.co/5sNFQf3/google-brand.jpg"
+  },
+  {
+    "name": "Sony",
+    "img": "https://i.ibb.co/tHZCtNN/sony-brand.jpg"
+  },
+  {
+    "name": "Oppo",
+    "img": "https://i.ibb.co/RYbf6L0/oppo-brand.jpg"
+  }
+]

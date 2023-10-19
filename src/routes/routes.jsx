@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import NotFound from "../components/NotFound";
-import Home from "../pages/Home";
+import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/login/Register";
 import MyCart from "../pages/MyCart";
@@ -9,6 +9,7 @@ import AddProduct from "../pages/AddProduct";
 import Accessories from "../pages/shop/Accesssories";
 import Computers from "../pages/shop/Computers";
 import Phones from "../pages/shop/Phones";
+import Product from "../pages/Product";
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch('/brands.json')
       },
       {
         path: "/phones",
@@ -48,6 +50,10 @@ const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/:name",
+        element: <Product />,
       },
     ],
   },
