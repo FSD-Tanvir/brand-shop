@@ -9,7 +9,7 @@ import AddProduct from "../pages/AddProduct";
 import Accessories from "../pages/shop/Accesssories";
 import Computers from "../pages/shop/Computers";
 import Phones from "../pages/shop/Phones";
-import Product from "../pages/Product";
+import Products from "../pages/Products";
 
 const routes = createBrowserRouter([
   {
@@ -53,7 +53,8 @@ const routes = createBrowserRouter([
       },
       {
         path: "/:name",
-        element: <Product />,
+        element: <Products />,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.name}`),
       },
     ],
   },

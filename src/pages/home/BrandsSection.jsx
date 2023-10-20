@@ -14,9 +14,9 @@ const BrandsSection = ({ brands }) => {
   return (
     <div className="py-5">
       <div >
-        <h1 className="font-semibold text-7xl py-10">Our Featured Brands</h1>
+        <h1 className="font-semibold text-2xl md:text-7xl p-3 sm:py-10">Our Featured Brands</h1>
       </div>
-      <div className="grid grid-cols-3 grid-rows-2 gap-5">
+      <div className="grid sm:grid-cols-3 grid-rows-2 gap-5 px-2">
         {brands.map((brand) => {
           const {name , img} = brand
           return (
