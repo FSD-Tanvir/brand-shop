@@ -1,6 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import SocialLogin from "./SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    //get field values
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    loginUser(email, password)
+      .then(() => {
+        toast.success("User logged in successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -8,7 +31,7 @@ const Login = () => {
           <h1 className="text-3xl font-semibold text-center text-error underline">
             Login Now!
           </h1>
-          <form className="mt-6">
+          <form onSubmit={handleLogin} className="mt-6">
             <div className="mb-2">
               <label
                 htmlFor="email"
@@ -36,7 +59,10 @@ const Login = () => {
               Forget Password?
             </a>
             <div className="mt-6">
-              <button className="w-full  btn btn-error btn-outline">
+              <button
+                className="w-full  btn btn-error btn-outline"
+                type="submit"
+              >
                 Login
               </button>
             </div>
@@ -52,6 +78,7 @@ const Login = () => {
               Register
             </Link>
           </p>
+          <SocialLogin />
         </div>
       </div>
     </div>

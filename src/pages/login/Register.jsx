@@ -1,7 +1,51 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import toast from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { createUser, handleUpdateProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    // get field values
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const img = e.target.img.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    // validation
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one capital letter");
+      return;
+    } else if (!/[!@#$%^&*]/.test(password)) {
+      toast.error(
+        "Password must contain at least one special character (!@#$%^&*)"
+      );
+      return;
+    }
+
+    // creating a new user
+
+    createUser(email, password)
+      .then(() => {
+        handleUpdateProfile(name, img).then(() => {
+          toast.success("User created successfully");
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -9,7 +53,7 @@ const Register = () => {
           <h1 className="text-3xl font-semibold text-center text-error underline">
             Register Now!
           </h1>
-          <form className="mt-6">
+          <form onSubmit={handleRegister} className="mt-6">
             <div className="mb-2">
               <label
                 htmlFor="name"
@@ -21,6 +65,7 @@ const Register = () => {
                 type="text"
                 name="name"
                 className="block w-full px-4 py-2 mt-2 text-error bg-white border rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                required
               />
             </div>
             <div className="mb-2">
@@ -34,6 +79,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 className="block w-full px-4 py-2 mt-2 text-error bg-white border rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                required
               />
             </div>
             <div className="mb-2">
@@ -57,10 +103,14 @@ const Register = () => {
                 type="password"
                 name="password"
                 className="block w-full px-4 py-2 mt-2 text-error bg-white border rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                required
               />
             </div>
             <div className="mt-6">
-              <button className="w-full  btn btn-error btn-outline">
+              <button
+                className="w-full  btn btn-error btn-outline"
+                type="submit"
+              >
                 Register
               </button>
             </div>
@@ -76,7 +126,7 @@ const Register = () => {
               Login
             </Link>
           </p>
-          <SocialLogin/>
+          <SocialLogin />
         </div>
       </div>
     </div>
