@@ -10,6 +10,8 @@ import Accessories from "../pages/shop/Accesssories";
 import Computers from "../pages/shop/Computers";
 import Phones from "../pages/shop/Phones";
 import Products from "../pages/Products";
+import Details from "../pages/Details";
+
 
 const routes = createBrowserRouter([
   {
@@ -52,9 +54,13 @@ const routes = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/:name",
+        path: "/:brandName",
         element: <Products />,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.name}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.brandName}`),
+      },
+      {
+        path: "/details",
+        element: <Details />,
       },
     ],
   },

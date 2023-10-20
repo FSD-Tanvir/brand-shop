@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 const BrandsSection = ({ brands }) => {
 
   let navigate = useNavigate(); 
-  const handleClick= (name) =>{ 
-    let path = `/${name}`; 
+  const handleClick= (brandName) =>{ 
+    let path = `/${brandName}`; 
     navigate(path);
     
   }
@@ -18,14 +18,14 @@ const BrandsSection = ({ brands }) => {
       </div>
       <div className="grid sm:grid-cols-3 grid-rows-2 gap-5 px-2">
         {brands.map((brand) => {
-          const {name , img} = brand
+          const {brandName , img} = brand
           return (
-            <div onClick={()=>handleClick(name)} key={name} className="card image-full">
+            <div onClick={()=>handleClick(brandName)} key={brandName} className="card image-full">
               <figure>
                 <img src={img} alt="" />
               </figure>
               <div className="card-body flex-col-reverse">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title">{brandName}</h2>
               </div>
             </div>
           );
