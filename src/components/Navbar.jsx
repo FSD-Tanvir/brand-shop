@@ -64,7 +64,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to={"/my-cart"} className="btn-error">
+                <Link to={"/myCart"} className="btn-error">
                   My Cart
                 </Link>
               </li>

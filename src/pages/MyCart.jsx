@@ -1,7 +1,26 @@
+
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const MyCart = () => {
-  const products = useLoaderData() || {}
+  const loadedProducts = useLoaderData() || {}
+
+
+  const [products, setProducts] = useState(loadedProducts);
+  const handleDelete = (_id) => {
+    fetch(`http://localhost:5000/myCart/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          alert("Deleted Successfully");
+          const remaining = products.filter((product) => product._id !== _id);
+          setProducts(remaining);
+        }
+      });
+  };
+
   return (
     <div>
       <div className="container mx-auto mt-10">
@@ -46,12 +65,13 @@ const MyCart = () => {
                     <div className="flex flex-col justify-between sm:ml-4 flex-grow">
                       <span className="font-bold text-sm">{product.name}</span>
                       <span className="text-red-500 text-xs">{product.brand}</span>
-                      <a
+                      <button
                         href="#"
                         className="font-semibold hover:text-red-500 text-gray-500 text-xs mt-2"
+                        onClick={() => handleDelete(product._id)}
                       >
                         Remove
-                      </a>
+                      </button>
                     </div>
                   </div>
                   <div className="flex justify-center w-1/5">

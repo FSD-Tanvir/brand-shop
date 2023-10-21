@@ -1,5 +1,10 @@
-const AddProduct = () => {
-  const handleAddUser = (e) => {
+import { useLoaderData } from "react-router-dom";
+
+const Update = () => {
+  const product = useLoaderData();
+  console.log(product);
+
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -10,28 +15,35 @@ const AddProduct = () => {
     const rating = form.rating.value;
     const description = form.description.value;
 
-    const product = { name, image, brand, type, price, rating, description };
-    fetch("http://localhost:5000/products", {
-      method: "POST",
+    const updateProduct = {
+      name,
+      image,
+      brand,
+      type,
+      price,
+      rating,
+      description,
+    };
+
+    fetch(`http://localhost:5000/products/update/${product._id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(product),
+      body: JSON.stringify(updateProduct),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          alert("Product Added Successfully");
-          form.reset();
+        if (data.modifiedCount > 0) {
+          alert("User Updated Successfully");
         }
       });
   };
   return (
     <div className="py-10 px-5">
       <div className="p-10   border-error border-4 rounded-3xl space-y-5 ">
-        <h1 className="text-center text-5xl font-semibold ">Add Product</h1>
-        <form onSubmit={handleAddUser}>
+        <h1 className="text-center text-5xl font-semibold ">Update Product</h1>
+        <form onSubmit={handleUpdate}>
           <div className="grid sm:grid-cols-2 gap-5">
             {/* name field */}
             <div className="form-control">
@@ -47,6 +59,7 @@ const AddProduct = () => {
                   name="name"
                   placeholder="Name"
                   className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200  rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                  defaultValue={product?.name}
                 />
               </div>
             </div>
@@ -64,6 +77,7 @@ const AddProduct = () => {
                   name="image"
                   placeholder="Image URL"
                   className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200 rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                  defaultValue={product?.image}
                 />
               </div>
             </div>
@@ -81,6 +95,7 @@ const AddProduct = () => {
                   name="brand"
                   placeholder="Brand Name"
                   className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200 rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                  defaultValue={product?.brand}
                 />
               </div>
             </div>
@@ -98,6 +113,7 @@ const AddProduct = () => {
                   name="type"
                   placeholder="Type "
                   className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200 rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                  defaultValue={product?.type}
                 />
               </div>
             </div>
@@ -115,6 +131,7 @@ const AddProduct = () => {
                   name="price"
                   placeholder="Price"
                   className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200 rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                  defaultValue={product?.price}
                 />
               </div>
             </div>
@@ -132,6 +149,7 @@ const AddProduct = () => {
                   name="rating"
                   placeholder="Rating"
                   className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200 rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                  defaultValue={product?.rating}
                 />
               </div>
             </div>
@@ -151,12 +169,13 @@ const AddProduct = () => {
                 rows={4}
                 cols={40}
                 className="block w-full px-4 py-2 mt-2 text-error bg-white border border-red-200 rounded-md focus:border-error focus:ring-error focus:outline-none focus:ring focus:ring-opacity-40"
+                defaultValue={product?.description}
               />
             </div>
           </div>
           <div className="mt-6 text-center">
             <button className="btn btn-error btn-outline" type="submit">
-              Add Product
+              Update Product
             </button>
           </div>
         </form>
@@ -165,4 +184,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default Update;

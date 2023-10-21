@@ -11,6 +11,7 @@ import Computers from "../pages/shop/Computers";
 import Phones from "../pages/shop/Phones";
 import Products from "../pages/Products";
 import Details from "../pages/Details";
+import Update from "../pages/Update";
 
 
 const routes = createBrowserRouter([
@@ -57,11 +58,16 @@ const routes = createBrowserRouter([
       {
         path: "/:brandName",
         element: <Products />,
-        loader: ({ params }) => fetch(`http://localhost:5000/products/${params.brandName}`),
+        loader: () => fetch(`http://localhost:5000/products`),
       },
       {
         path: "/details",
         element: <Details />,
+      },
+      {
+        path: "/products/update/:id",
+        element: <Update/>,
+        loader: ({ params }) => fetch(`http://localhost:5000/products/update/${params.id}`),
       },
     ],
   },
