@@ -4,8 +4,6 @@ import { useLoaderData } from "react-router-dom";
 
 const MyCart = () => {
   const loadedProducts = useLoaderData() || {}
-
-
   const [products, setProducts] = useState(loadedProducts);
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/myCart/${_id}`, {

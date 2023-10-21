@@ -6,7 +6,7 @@ import Login from "../pages/login/Login";
 import Register from "../pages/login/Register";
 import MyCart from "../pages/MyCart";
 import AddProduct from "../pages/AddProduct";
-import Accessories from "../pages/shop/Accesssories";
+import Accessories from "../pages/shop/Accessories";
 import Computers from "../pages/shop/Computers";
 import Phones from "../pages/shop/Phones";
 import Products from "../pages/Products";

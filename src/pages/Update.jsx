@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router-dom";
 
 const Update = () => {
   const product = useLoaderData();
-  console.log(product);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ const Update = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/products/update/${product._id}`, {
+    fetch(`http://localhost:5000/products/${product._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
