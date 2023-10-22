@@ -1,4 +1,4 @@
-const Computers = () => {
+const Watches = () => {
     return (
       <div>
         <h1 className="text-xl">This is Computers</h1>
@@ -6,4 +6,4 @@ const Computers = () => {
     );
   };
   
-  export default Computers;
+  export default Watches;

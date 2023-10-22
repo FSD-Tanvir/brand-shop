@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const MyCart = () => {
@@ -12,7 +13,7 @@ const MyCart = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          alert("Deleted Successfully");
+          toast.success("Deleted Successfully");
           const remaining = products.filter((product) => product._id !== _id);
           setProducts(remaining);
         }

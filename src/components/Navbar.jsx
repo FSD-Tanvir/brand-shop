@@ -38,7 +38,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <a className="btn-error">Shop</a>
                 <ul className="p-2">
                   <li>
@@ -47,8 +47,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to={"/computers"} className="btn-error">
-                      Computers
+                    <Link to={"/watches"} className="btn-error">
+                      Watches{" "}
                     </Link>
                   </li>
                   <li>
@@ -57,7 +57,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li>
                 <Link to={"/add-product"} className="btn-error">
                   Add Product
@@ -88,7 +88,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li tabIndex={0}>
+            {/* <li tabIndex={0}>
               <details>
                 <summary className="btn-error">Shop</summary>
                 <ul className="p-2 space-y-1 bg-error">
@@ -98,8 +98,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to={"/computers"} className="btn-error">
-                      Computers
+                    <Link to={"/watches"} className="btn-error">
+                      Watches
                     </Link>
                   </li>
                   <li>
@@ -109,7 +109,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               </details>
-            </li>
+            </li> */}
             <li>
               <Link to={"/add-product"} className="btn-error">
                 Add Product

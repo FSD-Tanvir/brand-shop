@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const AddProduct = () => {
   const handleAddUser = (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Product Added Successfully");
+          toast.success("Product Added Successfully");
           form.reset();
         }
       });

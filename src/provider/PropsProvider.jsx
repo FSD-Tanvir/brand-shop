@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useState } from "react";
+import toast from "react-hot-toast";
 
 export const PropsContext = createContext(null);
 
@@ -21,7 +22,7 @@ const PropsProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          alert("Product Added Successfully");
+          toast.success("Product Added Successfully");
         }
       });
   };
