@@ -19,10 +19,14 @@ const MemberShip = () => {
         /> */}
         <div className=" md:my-16 lg:py-16 py-10 w-full md:mx-24 md:px-12 px-4 flex flex-col items-center justify-center relative z-40">
           <h1 className="text-xl sm:text-4xl font-semibold leading-9 text-white text-center">
-          Unlock Exclusive Benefits with Premium Membership Subscription!
+            Unlock Exclusive Benefits with Premium Membership Subscription!
           </h1>
           <p className="text-base leading-normal text-center text-white mt-6">
-          Are you ready to take your shopping experience to the next level? Subscribe to our Premium Membership and gain access to a world of special discounts and exclusive perks. With our Premium Membership, you will enjoy a host of benefits that make every purchase even more rewarding.
+            Are you ready to take your shopping experience to the next level?
+            Subscribe to our Premium Membership and gain access to a world of
+            special discounts and exclusive perks. With our Premium Membership,
+            you will enjoy a host of benefits that make every purchase even more
+            rewarding.
           </p>
           <div className="sm:border border-white flex-col sm:flex-row flex items-center lg:w-5/12 w-full mt-12 space-y-4 sm:space-y-0">
             <input

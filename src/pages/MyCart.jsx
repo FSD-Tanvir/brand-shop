@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const MyCart = () => {
-  const loadedProducts = useLoaderData() || {}
+  const loadedProducts = useLoaderData() || {};
   const [products, setProducts] = useState(loadedProducts);
   const handleDelete = (_id) => {
     fetch(`http://localhost:5000/myCart/${_id}`, {
@@ -24,13 +23,14 @@ const MyCart = () => {
     <div>
       <div className="container mx-auto mt-10">
         <div className="flex flex-col lg:flex-row shadow-md my-10">
-
           {/* Shopping Cart */}
 
           <div className="lg:w-3/4 bg-white px-5 sm:px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-              <h2 className="font-semibold text-2xl">{products.length} Items</h2>
+              <h2 className="font-semibold text-2xl">
+                {products.length} Items
+              </h2>
             </div>
             <div className="flex mt-10 mb-5">
               <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
@@ -49,21 +49,21 @@ const MyCart = () => {
 
             {/* cart items */}
 
-            {
-              products.map( product =>{
-                return(
-                  <div key={product._id} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+            {products.map((product) => {
+              return (
+                <div
+                  key={product._id}
+                  className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
+                >
                   <div className="flex flex-col sm:flex-row gap-2 w-2/5">
                     <div className="w-20">
-                      <img
-                        className="h-24"
-                        src={product.image}
-                        alt=""
-                      />
+                      <img className="h-24" src={product.image} alt="" />
                     </div>
                     <div className="flex flex-col justify-between sm:ml-4 flex-grow">
                       <span className="font-bold text-sm">{product.name}</span>
-                      <span className="text-red-500 text-xs">{product.brand}</span>
+                      <span className="text-red-500 text-xs">
+                        {product.brand}
+                      </span>
                       <button
                         href="#"
                         className="font-semibold hover:text-red-500 text-gray-500 text-xs mt-2"
@@ -80,13 +80,13 @@ const MyCart = () => {
                     >
                       <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                     </svg>
-    
+
                     <input
                       className="mx-2 border text-center w-8"
                       type="text"
                       value="1"
                     />
-    
+
                     <svg
                       className="fill-current text-gray-600 w-3"
                       viewBox="0 0 448 512"
@@ -101,18 +101,10 @@ const MyCart = () => {
                     $400
                   </span>
                 </div>
-                )
-              })
-            }
+              );
+            })}
 
-            
-
-           
-
-            <a
-              href="#"
-              className="flex font-semibold text-error text-sm mt-10"
-            >
+            <a href="#" className="flex font-semibold text-error text-sm mt-10">
               <svg
                 className="fill-current mr-2 text-error w-4"
                 viewBox="0 0 448 512"

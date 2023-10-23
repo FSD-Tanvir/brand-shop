@@ -23,8 +23,8 @@ const Banner = () => {
               embark on a journey of seamless connectivity and unparalleled
               technology.
             </p>
-            <Link to={'/phones'}>
-            <button className="btn btn-error">Go Now!</button>
+            <Link to={"/phones"}>
+              <button className="btn btn-error">Go Now!</button>
             </Link>
           </div>
         </div>

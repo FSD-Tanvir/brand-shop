@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { PropsContext } from "../provider/PropsProvider";
 import PropTypes from "prop-types";
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
   const { handleDetails } = useContext(PropsContext);
   const { _id, name, image, brand, type, price, rating } = product;
   return (
@@ -53,10 +53,8 @@ const Product = ({product}) => {
   );
 };
 
-
 Product.propTypes = {
-    product: PropTypes.object.isRequired,
-  };
-  
+  product: PropTypes.object.isRequired,
+};
 
 export default Product;

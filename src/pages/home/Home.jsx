@@ -9,10 +9,10 @@ const Home = () => {
 
   return (
     <div>
-      <Banner/>
-      <BrandsSection brands={brands}/>
-      <Review/>
-      <MemberShip/>
+      <Banner />
+      <BrandsSection brands={brands} />
+      <Review />
+      <MemberShip />
     </div>
   );
 };
