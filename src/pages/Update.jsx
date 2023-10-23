@@ -25,7 +25,7 @@ const Update = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/products/${product._id}`, {
+    fetch(`https://gagetbaari-server.vercel.app/products/${product._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -1,10 +1,26 @@
-import { useContext } from "react";
-import { PropsContext } from "../provider/PropsProvider";
+import toast from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
-  const { product, handleAddToCart } = useContext(PropsContext);
+  const product = useLoaderData();
+  const { name, image, price, description } = product || {};
 
-  const { name, image, price, description } = product;
+  const handleAddToCart = (p) => {
+    fetch("https://gagetbaari-server.vercel.app/myCart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(p),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Product Added Successfully");
+        }
+      });
+  };
+
   return (
     <div>
       <div className="container px-5 py-24 mx-auto">

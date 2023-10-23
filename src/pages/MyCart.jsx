@@ -6,7 +6,7 @@ const MyCart = () => {
   const loadedProducts = useLoaderData() || {};
   const [products, setProducts] = useState(loadedProducts);
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/myCart/${_id}`, {
+    fetch(`https://gagetbaari-server.vercel.app/myCart/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

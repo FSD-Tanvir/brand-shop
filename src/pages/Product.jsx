@@ -1,10 +1,7 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { PropsContext } from "../provider/PropsProvider";
 import PropTypes from "prop-types";
 
 const Product = ({ product }) => {
-  const { handleDetails } = useContext(PropsContext);
   const { _id, name, image, brand, type, price, rating } = product;
   return (
     <div>
@@ -36,13 +33,8 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div className="flex justify-between items-center px-3 pb-5">
-          <Link to={`/details`}>
-            <button
-              className="btn btn-outline btn-error"
-              onClick={() => handleDetails(product)}
-            >
-              Details
-            </button>
+          <Link to={`/details/${_id}`}>
+            <button className="btn btn-outline btn-error">Details</button>
           </Link>
           <Link to={`/products/update/${_id}`}>
             <button className="btn btn-outline btn-error">Update</button>

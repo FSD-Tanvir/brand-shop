@@ -13,7 +13,7 @@ const AddProduct = () => {
     const description = form.description.value;
 
     const product = { name, image, brand, type, price, rating, description };
-    fetch("http://localhost:5000/products", {
+    fetch("https://gagetbaari-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

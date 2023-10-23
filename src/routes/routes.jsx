@@ -52,7 +52,7 @@ const routes = createBrowserRouter([
             <MyCart />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/myCart"),
+        loader: () => fetch("https://gagetbaari-server.vercel.app/myCart"),
       },
 
       {
@@ -66,15 +66,17 @@ const routes = createBrowserRouter([
       {
         path: "/:brandName",
         element: <Products />,
-        loader: () => fetch(`http://localhost:5000/products`),
+        loader: () => fetch(`https://gagetbaari-server.vercel.app/products`),
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: (
           <PrivateRoute>
             <Details />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`https://gagetbaari-server.vercel.app/products/${params.id}`),
       },
       {
         path: "/products/update/:id",
@@ -84,7 +86,9 @@ const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/update/${params.id}`),
+          fetch(
+            `https://gagetbaari-server.vercel.app/products/update/${params.id}`
+          ),
       },
     ],
   },
